@@ -9,10 +9,14 @@ paketa — scroll-reveal animacije su napravljene direktno preko `IntersectionOb
 ## Stranice
 
 - `/` – početna
-- `/o-nama` – o nama / iskustvo
-- `/usluge` – vjenčanja, foto/video, dron, dizajn
-- `/galerija` – portfolio
+- `/o-nama` – o nama
+- `/usluge` – vjenčanja, foto i video, dron, dizajn, marketing
+- `/galerija` – video (Facebook reels) i fotografije
+- `/partneri` – partneri i klijenti
 - `/rezervacija` – forma za rezervaciju termina
+
+Sav sadržaj (usluge, fotografije, video, partneri) je u [src/lib/site-data.ts](src/lib/site-data.ts).
+Fotografije su originali u `public/images/portfolio`, bez ponovne kompresije.
 
 ## Razvoj
 

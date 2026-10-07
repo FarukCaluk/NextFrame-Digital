@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
-import { Geist, Playfair_Display } from "next/font/google";
+import { Bricolage_Grotesque, Geist } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { site } from "@/lib/site-data";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-body",
+const body = Geist({
+  variable: "--font-geist-body",
   subsets: ["latin", "latin-ext"],
 });
 
-const playfair = Playfair_Display({
-  variable: "--font-display",
+const display = Bricolage_Grotesque({
+  variable: "--font-bricolage",
   subsets: ["latin", "latin-ext"],
+  weight: "600",
 });
 
 const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
@@ -22,23 +23,21 @@ const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${site.name} – ${site.tagline}`,
+    default: `${site.name} | Foto, video, dron i dizajn`,
     template: `%s | ${site.name}`,
   },
   description: site.description,
   openGraph: {
     title: site.name,
     description: site.description,
-    images: ["/images/logo.png"],
+    locale: "bs_BA",
+    images: [{ url: "/images/og.jpg", width: 1200, height: 630 }],
   },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="bs"
-      className={`${geistSans.variable} ${playfair.variable} h-full antialiased`}
-    >
+    <html lang="bs" className={`${body.variable} ${display.variable} h-full`}>
       <body className="flex min-h-full flex-col">
         <Header />
         <main className="flex-1">{children}</main>

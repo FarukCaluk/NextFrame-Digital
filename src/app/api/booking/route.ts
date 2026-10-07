@@ -52,7 +52,7 @@ export async function POST(request: Request) {
       from: "NextFrame Digital <onboarding@resend.dev>",
       to: [TO_EMAIL],
       reply_to: email,
-      subject: `Nova rezervacija – ${ime} ${prezime} (${usluga})`,
+      subject: `Nova rezervacija: ${ime} ${prezime} (${usluga})`,
       text: [
         `Ime i prezime: ${ime} ${prezime}`,
         `Usluga: ${usluga}`,

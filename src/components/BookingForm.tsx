@@ -1,14 +1,19 @@
 "use client";
 
+import { useSearchParams } from "next/navigation";
 import { useState, type FormEvent } from "react";
 import { services, site } from "@/lib/site-data";
 
-type Status = "idle" | "sending" | "sent" | "error";
+type Status = "idle" | "sending" | "sent" | "fallback";
 
 const today = new Date().toISOString().split("T")[0];
 
+const field =
+  "peer h-12 w-full border border-line bg-surface px-4 text-base outline-none transition-colors focus:border-accent user-invalid:border-red-400";
+const error = "mt-1.5 hidden text-sm text-red-400 peer-user-invalid:block";
+
 function buildMailto(data: Record<string, string>) {
-  const subject = `Nova rezervacija – ${data.ime} ${data.prezime} (${data.usluga})`;
+  const subject = `Nova rezervacija: ${data.ime} ${data.prezime} (${data.usluga})`;
   const body = [
     `Ime i prezime: ${data.ime} ${data.prezime}`,
     `Usluga: ${data.usluga}`,
@@ -23,17 +28,14 @@ function buildMailto(data: Record<string, string>) {
 }
 
 export default function BookingForm() {
+  const defaultService = useSearchParams().get("usluga") ?? "";
   const [status, setStatus] = useState<Status>("idle");
-  const [message, setMessage] = useState<string | null>(null);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries()) as Record<string, string>;
-
+    const data = Object.fromEntries(new FormData(form).entries()) as Record<string, string>;
     setStatus("sending");
-    setMessage(null);
 
     try {
       const res = await fetch("/api/booking", {
@@ -41,42 +43,50 @@ export default function BookingForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-
       if (res.ok) {
         setStatus("sent");
-        setMessage("Hvala! Vaš upit je poslan, javljamo se uskoro.");
         form.reset();
         return;
       }
-
-      // Server email not configured yet or send failed — fall back to opening the visitor's mail client.
-      window.location.href = buildMailto(data);
-      setStatus("sent");
-      setMessage("Otvara se vaš email klijent da potvrdite slanje upita.");
-      form.reset();
     } catch {
-      window.location.href = buildMailto(data);
-      setStatus("error");
-      setMessage("Otvara se vaš email klijent da potvrdite slanje upita.");
+      // falls through to the mail client fallback
     }
+    window.location.href = buildMailto(data);
+    setStatus("fallback");
+  }
+
+  if (status === "sent") {
+    return (
+      <div className="border border-accent p-8 md:p-10">
+        <h2 className="font-display text-3xl font-semibold tracking-tight">Upit je poslan.</h2>
+        <p className="mt-3 max-w-md text-muted">Hvala vam. Javljamo se na email ili telefon koji ste ostavili.</p>
+        <button
+          type="button"
+          onClick={() => setStatus("idle")}
+          className="mt-8 h-12 border border-line px-6 text-sm transition-colors hover:border-foreground active:translate-y-px"
+        >
+          Pošalji novi upit
+        </button>
+      </div>
+    );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="grid gap-5 sm:grid-cols-2">
-      <Field label="Ime" name="ime" required />
-      <Field label="Prezime" name="prezime" required />
+    <form onSubmit={handleSubmit} className="grid gap-x-5 gap-y-6 sm:grid-cols-2">
+      <div>
+        <label htmlFor="ime" className="mb-2 block text-sm text-muted">Ime</label>
+        <input id="ime" name="ime" required autoComplete="given-name" className={field} />
+        <p className={error}>Upišite ime.</p>
+      </div>
+      <div>
+        <label htmlFor="prezime" className="mb-2 block text-sm text-muted">Prezime</label>
+        <input id="prezime" name="prezime" required autoComplete="family-name" className={field} />
+        <p className={error}>Upišite prezime.</p>
+      </div>
 
-      <div className="sm:col-span-2">
-        <label className="mb-1.5 block text-sm text-muted" htmlFor="usluga">
-          Usluga <span className="text-accent">*</span>
-        </label>
-        <select
-          id="usluga"
-          name="usluga"
-          required
-          className="w-full rounded-xl border border-border bg-background-alt px-4 py-3 text-sm outline-none focus:border-accent"
-          defaultValue=""
-        >
+      <div>
+        <label htmlFor="usluga" className="mb-2 block text-sm text-muted">Usluga</label>
+        <select id="usluga" name="usluga" required defaultValue={defaultService} className={field}>
           <option value="" disabled>
             Odaberite uslugu
           </option>
@@ -87,22 +97,32 @@ export default function BookingForm() {
           ))}
           <option value="Ostalo">Ostalo</option>
         </select>
+        <p className={error}>Odaberite uslugu.</p>
+      </div>
+      <div>
+        <label htmlFor="datum" className="mb-2 block text-sm text-muted">Datum termina</label>
+        <input id="datum" name="datum" type="date" required min={today} className={field} />
+        <p className={error}>Odaberite datum od danas nadalje.</p>
       </div>
 
-      <Field label="Email" name="email" type="email" required />
-      <Field label="Broj telefona" name="telefon" type="tel" required />
-      <Field label="Datum termina" name="datum" type="date" required min={today} />
+      <div>
+        <label htmlFor="email" className="mb-2 block text-sm text-muted">Email</label>
+        <input id="email" name="email" type="email" required autoComplete="email" className={field} />
+        <p className={error}>Upišite ispravnu email adresu.</p>
+      </div>
+      <div>
+        <label htmlFor="telefon" className="mb-2 block text-sm text-muted">Broj telefona</label>
+        <input id="telefon" name="telefon" type="tel" required autoComplete="tel" className={field} />
+        <p className={error}>Upišite broj telefona.</p>
+      </div>
 
       <div className="sm:col-span-2">
-        <label className="mb-1.5 block text-sm text-muted" htmlFor="opis">
-          Opis upita
-        </label>
+        <label htmlFor="opis" className="mb-2 block text-sm text-muted">Opis upita</label>
         <textarea
           id="opis"
           name="opis"
-          rows={4}
-          placeholder="Recite nam par detalja o vašem eventu ili projektu..."
-          className="w-full resize-none rounded-xl border border-border bg-background-alt px-4 py-3 text-sm outline-none focus:border-accent"
+          rows={5}
+          className="w-full resize-none border border-line bg-surface px-4 py-3 text-base outline-none transition-colors focus:border-accent"
         />
       </div>
 
@@ -110,44 +130,20 @@ export default function BookingForm() {
         <button
           type="submit"
           disabled={status === "sending"}
-          className="w-full rounded-full bg-accent px-8 py-3 text-sm font-medium text-background transition-transform hover:scale-[1.01] disabled:opacity-60 sm:w-auto"
+          className="inline-flex h-14 w-full items-center justify-center bg-accent px-10 font-semibold text-background transition-colors hover:bg-foreground active:translate-y-px disabled:opacity-60 sm:w-auto"
         >
-          {status === "sending" ? "Slanje..." : "Pošalji upit"}
+          {status === "sending" ? "Šaljem..." : "Pošalji upit"}
         </button>
-        {message && (
-          <p className={`mt-3 text-sm ${status === "error" ? "text-muted" : "text-accent"}`}>{message}</p>
+        {status === "fallback" && (
+          <p role="status" className="mt-4 max-w-md text-sm text-muted">
+            Otvorili smo vaš email program sa popunjenim upitom, pritisnite Pošalji. Ako se ništa ne otvori, pišite na{" "}
+            <a href={`mailto:${site.email}`} className="text-accent underline underline-offset-4">
+              {site.email}
+            </a>
+            .
+          </p>
         )}
       </div>
     </form>
-  );
-}
-
-function Field({
-  label,
-  name,
-  type = "text",
-  required,
-  min,
-}: {
-  label: string;
-  name: string;
-  type?: string;
-  required?: boolean;
-  min?: string;
-}) {
-  return (
-    <div>
-      <label className="mb-1.5 block text-sm text-muted" htmlFor={name}>
-        {label} {required && <span className="text-accent">*</span>}
-      </label>
-      <input
-        id={name}
-        name={name}
-        type={type}
-        required={required}
-        min={min}
-        className="w-full rounded-xl border border-border bg-background-alt px-4 py-3 text-sm outline-none focus:border-accent"
-      />
-    </div>
   );
 }

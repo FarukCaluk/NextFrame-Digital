@@ -1,18 +1,19 @@
 export const site = {
   name: "NextFrame Digital",
-  tagline: "Od ideje do vizije – sve na jednom mjestu",
+  tagline: "Od ideje do vizije",
   description:
-    "Digitalni marketing, video, dizajn i foto produkcija. Snimanje vjenčanja, foto/video usluge, snimanje dronom i grafički dizajn.",
+    "Fotografija, video, dron, dizajn i marketing na jednom mjestu. Za vjenčanja, sportske klubove i brendove.",
   instagram: "https://www.instagram.com/nextframe.digital/",
+  facebook: "https://www.facebook.com/people/NextFrame/61566391409715/",
+  linkedin: "https://www.linkedin.com/in/armin-%C5%A1olbi%C4%87-b1298325b/",
   email: "farukcaluk12@gmail.com",
 };
 
 export const nav = [
-  { href: "/", label: "Početna" },
   { href: "/o-nama", label: "O nama" },
   { href: "/usluge", label: "Usluge" },
   { href: "/galerija", label: "Galerija" },
-  { href: "/rezervacija", label: "Rezervacija" },
+  { href: "/partneri", label: "Partneri" },
 ];
 
 export type Service = {
@@ -20,95 +21,132 @@ export type Service = {
   title: string;
   short: string;
   description: string;
-  bullets: string[];
-  image: string;
+  images: string[];
+  reels?: string[];
+  preview?: string;
 };
 
 export const services: Service[] = [
   {
     slug: "vjencanja",
     title: "Vjenčanja",
-    short: "Vaš dan, ispričan kao film.",
+    short: "Foto i video vjenčanja",
     description:
-      "Svaki detalj vjenčanja – od pripreme do prve pjesme – snimljen je tako da mu se vraćate godinama. Diskretan pristup na licu mjesta, bez ometanja gostiju i mladenaca.",
-    bullets: [
-      "Cjelodnevno snimanje fotografijom i videom",
-      "Filmski video vjenčanja + kratki highlight za društvene mreže",
-      "Profesionalna obrada i color grading",
-      "Opcionalno snimanje dronom za vanjske kadrove",
+      "Foto i video priča vašeg vjenčanja, snimljena prirodno, od priprema do slavlja.",
+    images: [
+      "/images/portfolio/vjencanja-stepenice.jpg",
+      "/images/portfolio/vjencanja-crno-bijelo.jpg",
+      "/images/portfolio/vjencanja-prstenje.jpg",
     ],
-    image: "/images/portfolio-wedding-1.jpg",
+    preview: "/images/portfolio/vjencanja-stepenice.jpg",
   },
   {
     slug: "foto-video",
-    title: "Foto / Video",
-    short: "Produkcija za brendove, event i intervjue.",
+    title: "Foto i video",
+    short: "Sport, događaji, automobili",
     description:
-      "Produktna fotografija, promotivni video, intervjui i sadržaj za društvene mreže – sve snimljeno i montirano u modernom, dinamičnom stilu koji radi na svakoj platformi.",
-    bullets: [
-      "Promo i reklamni video za brendove",
-      "Intervjui i testimonijali",
-      "Foto produkcija za proizvode i usluge",
-      "Sadržaj prilagođen Instagramu, TikToku i YouTubeu",
+      "Fotografija i video za sportske klubove, događaje, automobile i promotivne sadržaje.",
+    images: [
+      "/images/portfolio/sport-taekwondo-ogledalo.jpg",
+      "/images/portfolio/auto-audi-cesta.jpg",
+      "/images/portfolio/sport-fudbaler.jpg",
     ],
-    image: "/images/portfolio-reel-1.jpg",
+    preview: "/images/portfolio/sport-taekwondo-ogledalo.jpg",
   },
   {
     slug: "dron",
-    title: "Snimanje dronom",
-    short: "Perspektiva koja podiže svaki projekat.",
+    title: "Dron",
+    short: "Snimci iz zraka",
     description:
-      "Zračni kadrovi za nekretnine, events, turizam i vjenčanja. Sigurno, profesionalno i sa opremom koja hvata detalje u punoj rezoluciji.",
-    bullets: [
-      "Snimanje nekretnina i objekata",
-      "Zračni kadrovi za vjenčanja i events",
-      "Turistički i promotivni materijali",
-      "4K rezolucija, stabilizovani kadrovi",
-    ],
-    image: "/images/portfolio-wedding-2.jpg",
+      "Snimci iz zraka za gradove, prirodu i događaje. Pogledajte Neretvu iz zraka.",
+    images: [],
+    reels: ["1636356934156393"],
   },
   {
     slug: "dizajn",
     title: "Dizajn",
-    short: "Vizuelni identitet koji se pamti.",
+    short: "Brendovi i društvene mreže",
     description:
-      "Logo dizajn, vizuelni identitet, promotivni materijali i sadržaj za društvene mreže – dizajn koji vaš brend čini prepoznatljivim.",
-    bullets: [
-      "Logo i vizuelni identitet",
-      "Dizajn za društvene mreže",
-      "Promotivni i print materijali",
-      "Šabloni za redovan sadržaj (content plan)",
-    ],
-    image: "/images/portfolio-reel-2.jpg",
+      "Dizajn za brendove i društvene mreže: objave, promotivne grafike i vizuelni identitet.",
+    images: [],
+  },
+  {
+    slug: "marketing",
+    title: "Marketing",
+    short: "Sadržaj i društvene mreže",
+    description:
+      "Digitalni marketing i vođenje društvenih mreža: planiranje sadržaja, snimanje i objavljivanje.",
+    images: [],
+    reels: ["3484208181877704", "1446142411906465"],
   },
 ];
 
-export type PortfolioItem = {
+export type Category = "Vjenčanja" | "Sport" | "Automobili" | "Događaji";
+
+export type Photo = {
   src: string;
   alt: string;
-  category: "Vjenčanja" | "Foto/Video";
+  w: number;
+  h: number;
+  category: Category;
 };
 
-export const portfolio: PortfolioItem[] = [
-  { src: "/images/portfolio-wedding-1.jpg", alt: "Mladenci na vjenčanju – NextFrame Digital", category: "Vjenčanja" },
-  { src: "/images/portfolio-wedding-2.jpg", alt: "Mladenci sa konjem na vjenčanju – NextFrame Digital", category: "Vjenčanja" },
-  { src: "/images/portfolio-reel-1.jpg", alt: "Video produkcija – NextFrame Digital", category: "Foto/Video" },
-  { src: "/images/portfolio-reel-2.jpg", alt: "Video produkcija – NextFrame Digital", category: "Foto/Video" },
-  { src: "/images/portfolio-reel-3.jpg", alt: "Video produkcija vjenčanja – NextFrame Digital", category: "Vjenčanja" },
+const P = "/images/portfolio/";
+
+export const photos: Photo[] = [
+  { src: P + "vjencanja-stepenice.jpg", alt: "Mladenci na stepenicama modernog objekta", w: 1334, h: 2000, category: "Vjenčanja" },
+  { src: P + "sport-taekwondo-ogledalo.jpg", alt: "Taekwondo majstor ispred ogledala u dvorani", w: 2000, h: 1334, category: "Sport" },
+  { src: P + "auto-audi-krov.jpg", alt: "Audi A3 na krovu parking garaže", w: 2000, h: 1334, category: "Automobili" },
+  { src: P + "vjencanja-prstenje.jpg", alt: "Ruke mladenaca sa vjenčanim prstenjem", w: 1334, h: 2000, category: "Vjenčanja" },
+  { src: P + "sport-kickbox.jpg", alt: "Trener i kickboks takmičar u uglu ringa", w: 1616, h: 1080, category: "Sport" },
+  { src: P + "sport-fudbaler.jpg", alt: "Portret mladog fudbalera na terenu", w: 1334, h: 2000, category: "Sport" },
+  { src: P + "vjencanja-crno-bijelo.jpg", alt: "Mladenci, crno-bijela fotografija vjenčanja", w: 1334, h: 2000, category: "Vjenčanja" },
+  { src: P + "sport-taekwondo-majstor.jpg", alt: "Taekwondo trener ispred polaznika u dvorani", w: 2000, h: 1334, category: "Sport" },
+  { src: P + "auto-audi-cesta.jpg", alt: "Audi A3 u vožnji na cesti", w: 2000, h: 1334, category: "Automobili" },
+  { src: P + "dogadjaji-zastava.jpg", alt: "Djevojka sa zastavom na prozoru automobila u noćnom kadru", w: 1334, h: 2000, category: "Događaji" },
+  { src: P + "sport-taekwondo-trening.jpg", alt: "Trening taekwondo kluba u dvorani", w: 2000, h: 1334, category: "Sport" },
+  { src: P + "auto-audi-avion.jpg", alt: "Audi A3 i avion u slijetanju", w: 2000, h: 1334, category: "Automobili" },
+  { src: P + "sport-trener-bosna-rudar.jpg", alt: "Leđa trenera sa natpisom Bosna Rudar", w: 2000, h: 1334, category: "Sport" },
+  { src: P + "dogadjaji-kamion.jpg", alt: "Kamion sa zastavom Bosne i Hercegovine u noćnom kadru", w: 1334, h: 2000, category: "Događaji" },
+  { src: P + "auto-audi-dva.jpg", alt: "Dva Audija na krovu garaže", w: 2000, h: 1334, category: "Automobili" },
+  { src: P + "sport-taekwondo-grupa.jpg", alt: "Grupa mladih taekwondo takmičara u dvorani", w: 2000, h: 1125, category: "Sport" },
+  { src: P + "sport-taekwondo-mural.jpg", alt: "Djeca na taekwondo treningu ispred murala", w: 2000, h: 1125, category: "Sport" },
 ];
 
-export const partners = [
-  "Caffe & Restaurant Rondo",
-  "TS GROUP D.O.O.",
-  "MobiFon Shop",
-  "Wool & Mama",
-  "Sky Parking & Fly",
-  "Foto Kubura Studio",
+export const categories: Category[] = ["Vjenčanja", "Sport", "Automobili", "Događaji"];
+
+export type Reel = {
+  id: string;
+  title: string;
+  tag?: string;
+};
+
+// Kakanj iz zraka (1381225033688486) is left out: Facebook blocks embedding it.
+export const reels: Reel[] = [
+  { id: "1636356934156393", title: "Neretva iz zraka", tag: "Dron" },
+  { id: "3484208181877704", title: "MobiFon Shop" },
+  { id: "1446142411906465", title: "Sky Parking & Fly" },
+  { id: "28825078587089597", title: "Sky Parking & Fly" },
 ];
 
-export const stats = [
-  { value: "700+", label: "pratilaca na Instagramu" },
-  { value: "200+", label: "objavljenih projekata" },
-  { value: "6+", label: "stalnih partnera" },
-  { value: "4", label: "usluge pod jednim krovom" },
+export type Partner = {
+  name: string;
+  logo?: string;
+  instagram: string;
+};
+
+const L = "/images/partners/";
+
+export const partners: Partner[] = [
+  { name: "Taekwondo kolektiv Bosna Rudar", logo: L + "bosna-rudar.jpg", instagram: "tkdkolektivbosnarudar" },
+  { name: "Stomatološka ordinacija Dr. Karić", logo: L + "dr-karic.jpg", instagram: "dr.karic_dent" },
+  { name: "MobiFon Shop", logo: L + "mobifon.jpg", instagram: "mobifon_shop" },
+  { name: "Sky Parking & Fly", logo: L + "sky-parking.jpg", instagram: "skyparkingandflyba" },
+  { name: "Caffe & Restaurant Rondo", logo: L + "rondo.jpg", instagram: "caffe.restaurant.rondo" },
+  { name: "SBK Mezz", logo: L + "sbk-mezz.jpg", instagram: "sbk_mezz" },
+  { name: "TS Group", logo: L + "ts-group.jpg", instagram: "tsgroup.doo" },
+  { name: "Wool & Mama", logo: L + "wool-and-mama.jpg", instagram: "woolandmama" },
+  { name: "My Space", instagram: "myspace28.03" },
 ];
+
+export const logoWall = partners.filter((p) => p.logo);

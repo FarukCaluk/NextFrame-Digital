@@ -1,69 +1,83 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import CtaBand from "@/components/CtaBand";
+import ReelEmbed from "@/components/ReelEmbed";
 import Reveal from "@/components/Reveal";
 import { services } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "Usluge",
-  description: "Vjenčanja, foto/video produkcija, snimanje dronom i dizajn – sve usluge NextFrame Digital.",
+  description: "Vjenčanja, foto i video, dron, dizajn i marketing. Sve usluge NextFrame Digital.",
 };
+
+const cols: Record<number, string> = { 1: "grid-cols-1 max-w-[16rem]", 2: "grid-cols-2 max-w-lg", 3: "grid-cols-3" };
 
 export default function UslugePage() {
   return (
-    <div>
-      <div className="mx-auto max-w-5xl px-5 pt-24 pb-12">
+    <>
+      <div className="mx-auto max-w-7xl px-5 pb-16 pt-16 md:px-8 md:pb-24 md:pt-24">
         <Reveal>
-          <p className="text-sm uppercase tracking-[0.3em] text-accent">Usluge</p>
-          <h1 className="mt-3 font-display text-4xl sm:text-5xl">Sve što vam treba, pod jednim krovom</h1>
-          <p className="mt-6 max-w-2xl text-muted">
-            Od prve ideje do finalnog kadra – četiri usluge koje se prirodno nadopunjuju, bilo da vam treba
-            snimanje vjenčanja, produkcija za brend, kadrovi iz vazduha ili kompletan vizuelni identitet.
+          <h1 className="font-display text-6xl font-semibold leading-[0.9] tracking-tighter md:text-9xl">Usluge</h1>
+          <p className="mt-8 max-w-md text-lg text-muted">
+            Pet usluga koje se nadopunjuju: od snimanja do objave.
           </p>
         </Reveal>
       </div>
 
-      {services.map((service, i) => (
-        <section
-          key={service.slug}
-          id={service.slug}
-          className={`scroll-mt-24 border-t border-border ${i % 2 === 1 ? "bg-background-alt" : ""}`}
-        >
-          <div
-            className={`mx-auto grid max-w-6xl gap-10 px-5 py-20 md:grid-cols-2 md:items-center ${
-              i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""
-            }`}
-          >
-            <Reveal className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border">
-              <Image
-                src={service.image}
-                alt={service.title}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </Reveal>
-            <Reveal delay={100}>
-              <h2 className="font-display text-3xl sm:text-4xl">{service.title}</h2>
-              <p className="mt-4 text-muted">{service.description}</p>
-              <ul className="mt-6 space-y-3">
-                {service.bullets.map((b) => (
-                  <li key={b} className="flex items-start gap-3 text-sm text-foreground/90">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-                    {b}
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href="/rezervacija"
-                className="mt-8 inline-block rounded-full border border-accent px-6 py-2.5 text-sm font-medium text-accent transition-colors hover:bg-accent hover:text-background"
-              >
-                Zakaži za: {service.title}
-              </Link>
-            </Reveal>
+      {services.map((s) => (
+        <section key={s.slug} id={s.slug} className="scroll-mt-16 border-t border-line">
+          <div className="mx-auto grid max-w-7xl gap-8 px-5 py-16 md:px-8 md:py-24 lg:grid-cols-12 lg:gap-12">
+            <div className="lg:col-span-5">
+              <h2 className="font-display text-5xl font-semibold leading-none tracking-tighter md:text-7xl lg:sticky lg:top-28">
+                {s.title}
+              </h2>
+            </div>
+            <div className="lg:col-span-7">
+              <Reveal>
+                <p className="max-w-xl text-xl text-muted">{s.description}</p>
+              </Reveal>
+              {s.images.length + (s.reels?.length ?? 0) > 0 && (
+                <div className={`mt-10 grid gap-3 ${cols[s.images.length + (s.reels?.length ?? 0)]}`}>
+                  {s.images.map((src, i) => (
+                    <Reveal key={src} image delay={i * 120}>
+                      <div className="relative aspect-[3/4] overflow-hidden bg-surface">
+                        <Image
+                          src={src}
+                          alt=""
+                          fill
+                          quality={90}
+                          sizes="(max-width: 1024px) 33vw, 28vw"
+                          className="object-cover"
+                        />
+                      </div>
+                    </Reveal>
+                  ))}
+                  {s.reels?.map((id) => (
+                    <ReelEmbed key={id} id={id} title={s.title} />
+                  ))}
+                </div>
+              )}
+              <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm font-medium">
+                <Link
+                  href={`/rezervacija?usluga=${encodeURIComponent(s.title)}`}
+                  className="group inline-flex items-center gap-2 text-accent"
+                >
+                  Zakaži termin
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                </Link>
+                {s.slug === "dron" && (
+                  <Link href="/galerija#video" className="underline underline-offset-8 hover:text-accent">
+                    Pogledaj video
+                  </Link>
+                )}
+              </div>
+            </div>
           </div>
         </section>
       ))}
-    </div>
+
+      <CtaBand />
+    </>
   );
 }

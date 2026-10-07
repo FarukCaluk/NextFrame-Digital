@@ -1,153 +1,143 @@
 import Image from "next/image";
 import Link from "next/link";
+import CtaBand from "@/components/CtaBand";
+import PartnerMarquee from "@/components/PartnerMarquee";
 import Reveal from "@/components/Reveal";
-import { partners, portfolio, services, site, stats } from "@/lib/site-data";
+import ServicesIndex from "@/components/ServicesIndex";
+import VideoReels from "@/components/VideoReels";
+
+const bento = [
+  {
+    src: "/images/portfolio/vjencanja-stepenice.jpg",
+    alt: "Mladenci na stepenicama modernog objekta",
+    cell: "col-span-2 aspect-[4/5] lg:aspect-auto lg:col-span-4 lg:row-span-6",
+    pos: "object-center",
+  },
+  {
+    src: "/images/portfolio/auto-audi-krov.jpg",
+    alt: "Audi A3 na krovu parking garaže",
+    cell: "col-span-2 aspect-[3/2] lg:aspect-auto lg:col-span-8 lg:row-span-3",
+    pos: "object-center",
+  },
+  {
+    src: "/images/portfolio/sport-fudbaler.jpg",
+    alt: "Portret mladog fudbalera na terenu",
+    cell: "aspect-square lg:aspect-auto lg:col-span-4 lg:row-span-3",
+    pos: "object-top",
+  },
+  {
+    src: "/images/portfolio/sport-kickbox.jpg",
+    alt: "Trener i kickboks takmičar u uglu ringa",
+    cell: "aspect-square lg:aspect-auto lg:col-span-4 lg:row-span-3",
+    pos: "object-center",
+  },
+];
 
 export default function Home() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative flex min-h-[92vh] items-end overflow-hidden border-b border-border">
-        <Image
-          src="/images/portfolio-wedding-1.jpg"
-          alt="NextFrame Digital – produkcija vjenčanja"
-          fill
-          priority
-          className="object-cover object-top opacity-60"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/20" />
-        <div className="relative mx-auto w-full max-w-6xl px-5 pb-20 pt-40">
-          <p className="text-sm uppercase tracking-[0.3em] text-accent">{site.name}</p>
-          <h1 className="mt-4 max-w-2xl font-display text-4xl leading-tight sm:text-5xl md:text-6xl">
-            {site.tagline}
+      <section className="mx-auto grid min-h-[calc(100dvh-4rem)] max-w-7xl items-center gap-12 px-5 py-12 md:px-8 lg:grid-cols-12 lg:gap-8 lg:py-0">
+        <div className="lg:col-span-7">
+          <h1
+            className="rise font-display text-[clamp(3.4rem,8.2vw,7.5rem)] font-semibold leading-[0.9] tracking-tighter"
+            style={{ "--i": 0 } as React.CSSProperties}
+          >
+            <span className="block">Od ideje</span>
+            <span className="block text-accent">do vizije.</span>
           </h1>
-          <p className="mt-6 max-w-xl text-base text-muted sm:text-lg">
-            {site.description}
+          <p className="rise mt-8 max-w-md text-lg text-muted" style={{ "--i": 2 } as React.CSSProperties}>
+            Fotografija, video, dron, dizajn i marketing na jednom mjestu. Za vjenčanja, sportske klubove i brendove.
           </p>
-          <div className="mt-10 flex flex-wrap gap-4">
+          <div
+            className="rise mt-10 flex flex-wrap items-center gap-x-8 gap-y-4"
+            style={{ "--i": 3 } as React.CSSProperties}
+          >
             <Link
               href="/rezervacija"
-              className="rounded-full bg-accent px-7 py-3 text-sm font-medium text-background transition-transform hover:scale-[1.03]"
+              className="inline-flex h-14 items-center bg-accent px-8 font-semibold text-background transition-colors hover:bg-foreground active:translate-y-px"
             >
               Zakaži termin
             </Link>
-            <Link
-              href="/usluge"
-              className="rounded-full border border-foreground/30 px-7 py-3 text-sm font-medium transition-colors hover:border-accent hover:text-accent"
-            >
-              Pogledaj usluge
+            <Link href="/galerija" className="group inline-flex items-center gap-2 text-sm font-medium">
+              Pogledaj radove
+              <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
             </Link>
+          </div>
+        </div>
+
+        <div className="rise relative lg:col-span-5" style={{ "--i": 1 } as React.CSSProperties}>
+          <div className="relative h-[56dvh] overflow-hidden lg:h-[min(74dvh,680px)]">
+            <Image
+              src="/images/portfolio/vjencanja-stepenice.jpg"
+              alt="Mladenci na stepenicama modernog objekta"
+              fill
+              priority
+              quality={90}
+              sizes="(max-width: 1024px) 100vw, 40vw"
+              className="drift object-cover"
+            />
+          </div>
+          <div className="absolute -bottom-6 -left-4 hidden w-2/5 border-[6px] border-background md:block lg:-left-12">
+            <Image
+              src="/images/portfolio/sport-kickbox.jpg"
+              alt="Trener i kickboks takmičar u uglu ringa"
+              width={1616}
+              height={1080}
+              quality={90}
+              sizes="20vw"
+              className="h-auto w-full"
+            />
           </div>
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="border-b border-border bg-background-alt">
-        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-8 px-5 py-12 md:grid-cols-4">
-          {stats.map((s) => (
-            <Reveal key={s.label} className="text-center">
-              <div className="font-display text-3xl text-accent sm:text-4xl">{s.value}</div>
-              <div className="mt-1 text-xs uppercase tracking-wide text-muted sm:text-sm">{s.label}</div>
-            </Reveal>
-          ))}
-        </div>
-      </section>
+      <PartnerMarquee />
 
-      {/* Services */}
-      <section className="mx-auto max-w-6xl px-5 py-24">
+      <section className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-36">
         <Reveal>
-          <p className="text-sm uppercase tracking-[0.3em] text-accent">Šta nudimo</p>
-          <h2 className="mt-3 font-display text-3xl sm:text-4xl">Usluge koje pokrivaju cijelu priču</h2>
+          <h2 className="mb-12 font-display text-4xl font-semibold tracking-tight md:mb-16 md:text-6xl">Šta radimo</h2>
         </Reveal>
-
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {services.map((service, i) => (
-            <Reveal key={service.slug} delay={i * 80}>
-              <Link
-                href={`/usluge#${service.slug}`}
-                className="group block h-full overflow-hidden rounded-2xl border border-border bg-background-alt transition-colors hover:border-accent"
-              >
-                <div className="relative h-48 w-full overflow-hidden">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, 25vw"
-                  />
-                </div>
-                <div className="p-5">
-                  <h3 className="font-display text-xl">{service.title}</h3>
-                  <p className="mt-2 text-sm text-muted">{service.short}</p>
-                </div>
-              </Link>
-            </Reveal>
-          ))}
-        </div>
+        <ServicesIndex />
       </section>
 
-      {/* Portfolio preview */}
-      <section className="border-y border-border bg-background-alt py-24">
-        <div className="mx-auto max-w-6xl px-5">
-          <Reveal className="flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <p className="text-sm uppercase tracking-[0.3em] text-accent">Portfolio</p>
-              <h2 className="mt-3 font-display text-3xl sm:text-4xl">Nedavni radovi</h2>
-            </div>
-            <Link href="/galerija" className="text-sm text-accent hover:underline">
-              Pogledaj cijelu galeriju →
+      <section className="border-t border-line">
+        <div className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-36">
+          <Reveal className="mb-12 flex flex-wrap items-end justify-between gap-6 md:mb-16">
+            <h2 className="font-display text-4xl font-semibold tracking-tight md:text-6xl">Odabrani radovi</h2>
+            <Link href="/galerija" className="group inline-flex items-center gap-2 text-sm font-medium">
+              Pogledaj radove
+              <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
             </Link>
           </Reveal>
-
-          <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-5">
-            {portfolio.map((item, i) => (
-              <Reveal key={item.src} delay={i * 60}>
-                <div className="relative aspect-[3/4] w-full overflow-hidden rounded-xl">
+          <div className="grid grid-cols-2 gap-3 md:gap-4 lg:h-[780px] lg:grid-cols-12 lg:grid-rows-6">
+            {bento.map((b, i) => (
+              <Reveal key={b.src} image delay={i * 120} className={b.cell}>
+                <Link href="/galerija" className="group relative block h-full w-full overflow-hidden bg-surface">
                   <Image
-                    src={item.src}
-                    alt={item.alt}
+                    src={b.src}
+                    alt={b.alt}
                     fill
-                    className="object-cover transition-transform duration-500 hover:scale-105"
-                    sizes="(max-width: 768px) 50vw, 20vw"
+                    quality={90}
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className={`object-cover ${b.pos} transition-transform duration-700 group-hover:scale-[1.04]`}
                   />
-                </div>
+                </Link>
               </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Partners */}
-      <section className="mx-auto max-w-6xl px-5 py-24">
-        <Reveal className="text-center">
-          <p className="text-sm uppercase tracking-[0.3em] text-accent">Povjerenje brendova</p>
-          <h2 className="mt-3 font-display text-3xl sm:text-4xl">Sarađujemo sa</h2>
-        </Reveal>
-        <Reveal delay={100} className="mt-10 flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
-          {partners.map((p) => (
-            <span key={p} className="text-sm uppercase tracking-wide text-muted sm:text-base">
-              {p}
-            </span>
-          ))}
-        </Reveal>
+      <section className="border-t border-line">
+        <div className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-36">
+          <Reveal>
+            <h2 className="mb-12 font-display text-4xl font-semibold tracking-tight md:mb-16 md:text-6xl">Video</h2>
+          </Reveal>
+          <VideoReels />
+        </div>
       </section>
 
-      {/* CTA */}
-      <section className="border-t border-border bg-background-alt">
-        <Reveal className="mx-auto max-w-3xl px-5 py-24 text-center">
-          <h2 className="font-display text-3xl sm:text-4xl">Spremni da ispričamo vašu priču?</h2>
-          <p className="mt-4 text-muted">
-            Zakažite besplatan razgovor i dogovorimo termin za vaše vjenčanje, event ili brend.
-          </p>
-          <Link
-            href="/rezervacija"
-            className="mt-8 inline-block rounded-full bg-accent px-8 py-3 text-sm font-medium text-background transition-transform hover:scale-[1.03]"
-          >
-            Rezerviši termin
-          </Link>
-        </Reveal>
-      </section>
+      <CtaBand />
     </>
   );
 }
