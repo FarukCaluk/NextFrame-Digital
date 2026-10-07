@@ -5,6 +5,7 @@ import PartnerMarquee from "@/components/PartnerMarquee";
 import Reveal from "@/components/Reveal";
 import ServicesIndex from "@/components/ServicesIndex";
 import VideoReels from "@/components/VideoReels";
+import { reels } from "@/lib/site-data";
 
 const bento = [
   {
@@ -144,7 +145,7 @@ export default function Home() {
           <Reveal>
             <h2 className="mb-12 font-display text-4xl font-semibold tracking-tight md:mb-16 md:text-6xl">Video</h2>
           </Reveal>
-          <VideoReels limit={4} />
+          <VideoReels items={reels.filter((r) => r.featured)} />
         </div>
       </section>
 

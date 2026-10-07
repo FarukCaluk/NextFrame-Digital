@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
+import { site } from "@/lib/site-data";
 
-const TO_EMAIL = process.env.BOOKING_EMAIL || "farukcaluk12@gmail.com";
+const TO_EMAIL = process.env.BOOKING_EMAIL || site.email;
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
 
 type BookingPayload = {

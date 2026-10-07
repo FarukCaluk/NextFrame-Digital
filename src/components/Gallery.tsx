@@ -20,25 +20,27 @@ export default function Gallery({ photos, categories }: { photos: Photo[]; categ
 
   return (
     <>
-      <div className="flex flex-wrap gap-2" role="group" aria-label="Filter fotografija">
-        {["Sve", ...categories].map((c) => (
-          <button
-            key={c}
-            type="button"
-            onClick={() => setFilter(c)}
-            aria-pressed={filter === c}
-            className={`h-11 rounded-full px-6 text-sm transition-colors active:translate-y-px ${
-              filter === c
-                ? "bg-accent font-semibold text-background"
-                : "glass text-foreground/85 hover:border-white/30"
-            }`}
-          >
-            {c}
-          </button>
-        ))}
-      </div>
+      {categories.length > 0 && (
+        <div className="mb-10 flex flex-wrap gap-2" role="group" aria-label="Filter">
+          {["Sve", ...categories].map((c) => (
+            <button
+              key={c}
+              type="button"
+              onClick={() => setFilter(c)}
+              aria-pressed={filter === c}
+              className={`h-11 rounded-full px-6 text-sm transition-colors active:translate-y-px ${
+                filter === c
+                  ? "bg-accent font-semibold text-background"
+                  : "glass text-foreground/85 hover:border-white/30"
+              }`}
+            >
+              {c}
+            </button>
+          ))}
+        </div>
+      )}
 
-      <div key={filter} className="mt-10 columns-2 gap-3 md:columns-3 md:gap-4">
+      <div key={filter} className="columns-2 gap-3 md:columns-3 md:gap-4">
         {shown.map((p, i) => (
           <button
             key={p.src}

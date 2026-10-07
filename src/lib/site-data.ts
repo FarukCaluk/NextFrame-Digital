@@ -6,7 +6,7 @@ export const site = {
   instagram: "https://www.instagram.com/nextframe.digital/",
   facebook: "https://www.facebook.com/people/NextFrame/61566391409715/",
   linkedin: "https://www.linkedin.com/in/armin-%C5%A1olbi%C4%87-b1298325b/",
-  email: "farukcaluk12@gmail.com",
+  email: "nextframe.digital2025@gmail.com",
 };
 
 export const nav = [
@@ -22,9 +22,11 @@ export type Service = {
   short: string;
   description: string;
   images: string[];
-  reels?: string[];
+  reelGroup?: ReelGroup;
   preview?: string;
 };
+
+export type ReelGroup = "Dron" | "Vjenčanja" | "Marketing";
 
 const reel = (id: string) => `https://www.facebook.com/reel/${id}/`;
 
@@ -40,6 +42,7 @@ export const services: Service[] = [
       "/images/portfolio/vjencanja-crno-bijelo.jpg",
       "/images/portfolio/vjencanja-prstenje.jpg",
     ],
+    reelGroup: "Vjenčanja",
     preview: "/images/portfolio/vjencanja-stepenice.jpg",
   },
   {
@@ -60,17 +63,18 @@ export const services: Service[] = [
     title: "Dron",
     short: "Snimci iz zraka",
     description:
-      "Snimci iz zraka za gradove, prirodu i događaje. Pogledajte Neretvu iz zraka.",
+      "Snimci iz zraka za gradove, prirodu, objekte i događaje.",
     images: [],
-    reels: [reel("1636356934156393")],
+    reelGroup: "Dron",
   },
   {
     slug: "dizajn",
     title: "Dizajn",
     short: "Brendovi i društvene mreže",
     description:
-      "Dizajn za brendove i društvene mreže: objave, promotivne grafike i vizuelni identitet.",
+      "Dizajn za brendove i društvene mreže: objave, plakati i promotivne grafike.",
     images: [],
+    preview: "/images/dizajn/sejla-zonic.jpg",
   },
   {
     slug: "marketing",
@@ -79,11 +83,11 @@ export const services: Service[] = [
     description:
       "Digitalni marketing i vođenje društvenih mreža: planiranje sadržaja, snimanje i objavljivanje.",
     images: [],
-    reels: [reel("3484208181877704"), reel("1446142411906465")],
+    reelGroup: "Marketing",
   },
 ];
 
-export type Category = "Vjenčanja" | "Sport" | "Automobili" | "Događaji";
+export type Category = "Vjenčanja" | "Sport" | "Automobili" | "Događaji" | "Dizajn";
 
 export type Photo = {
   src: string;
@@ -117,23 +121,48 @@ export const photos: Photo[] = [
 
 export const categories: Category[] = ["Vjenčanja", "Sport", "Automobili", "Događaji"];
 
+export const designs: Photo[] = [
+  { src: "/images/dizajn/adin-boutique.jpg", alt: "Objava za Adin Boutique, nova kolekcija", w: 1158, h: 2000, category: "Dizajn" },
+  { src: "/images/dizajn/sejla-zonic.jpg", alt: "Plakat za koncert u Kaknju", w: 1320, h: 1657, category: "Dizajn" },
+  { src: "/images/dizajn/dr-karic.jpg", alt: "Objava za stomatološku ordinaciju Dr. Karić", w: 1179, h: 1153, category: "Dizajn" },
+  { src: "/images/dizajn/hercegovac-ismail.jpg", alt: "Objava za takmičara Taekwondo kolektiva Bosna Rudar", w: 1600, h: 2000, category: "Dizajn" },
+  { src: "/images/dizajn/my-space.jpg", alt: "Objava za caffe klub My Space", w: 1179, h: 1466, category: "Dizajn" },
+  { src: "/images/dizajn/apartman-visoko.jpg", alt: "Objava za apartman u Visokom", w: 1141, h: 2000, category: "Dizajn" },
+  { src: "/images/dizajn/sbk-mezz.jpg", alt: "Objava za Sportski bilijar klub Mezz", w: 1179, h: 1504, category: "Dizajn" },
+  { src: "/images/dizajn/svecana-noc-uspjeha.jpg", alt: "Poziv na Svečanu noć uspjeha taekwondo asocijacije", w: 2000, h: 1000, category: "Dizajn" },
+  { src: "/images/dizajn/adin-nova-kolekcija.jpg", alt: "Priča nova kolekcija za Adin Boutique", w: 1139, h: 2000, category: "Dizajn" },
+  { src: "/images/dizajn/apartman-kakanj.jpg", alt: "Objava za apartman u Kaknju", w: 1179, h: 1155, category: "Dizajn" },
+  { src: "/images/dizajn/lisak-nedim.jpg", alt: "Objava za takmičara Taekwondo kolektiva Bosna Rudar", w: 1414, h: 2000, category: "Dizajn" },
+  { src: "/images/dizajn/sbk-mezz-kokteli.jpg", alt: "Objava za Sportski bilijar klub Mezz, bilijar i kokteli", w: 1179, h: 1434, category: "Dizajn" },
+];
+
 export type Reel = {
   url: string;
   title: string;
   tag?: string;
+  group: ReelGroup;
+  featured?: boolean;
 };
 
-// Left out because Facebook refuses to embed them: Kakanj iz zraka (1381225033688486)
+// Facebook refuses to embed these, so they are left out: Kakanj iz zraka (1381225033688486),
+// "dok je Bosna ne rodi" (960944763143288), "Malo je malo dana" (935646858820984)
 // and the Adin Boutique trenerke video post.
 export const reels: Reel[] = [
-  { url: reel("1636356934156393"), title: "Neretva iz zraka", tag: "Dron" },
-  { url: reel("2085375498717968"), title: "Dr. Karić", tag: "Stomatološka ordinacija" },
-  { url: reel("882032824911856"), title: "Adin Boutique", tag: "Nova kolekcija" },
-  { url: reel("3484208181877704"), title: "MobiFon Shop" },
-  { url: reel("1058319456728179"), title: "Adin Boutique", tag: "Osvježi stil" },
-  { url: reel("1446142411906465"), title: "Sky Parking & Fly" },
-  { url: reel("28825078587089597"), title: "Sky Parking & Fly" },
+  { url: reel("1636356934156393"), title: "Neretva iz zraka", group: "Dron", featured: true },
+  { url: reel("884225184613850"), title: "Gotiva iz ptičije perspektive", group: "Dron" },
+  { url: reel("850736400638968"), title: "Plastenici iz zraka", group: "Dron" },
+  { url: reel("1465524891605698"), title: "Vjenčanja", tag: "NextFrame", group: "Vjenčanja", featured: true },
+  { url: reel("2085375498717968"), title: "Dr. Karić", tag: "Stomatološka ordinacija", group: "Marketing", featured: true },
+  { url: reel("954010560459453"), title: "Dr. Karić", tag: "Rezervacija termina", group: "Marketing" },
+  { url: reel("882032824911856"), title: "Adin Boutique", tag: "Nova kolekcija", group: "Marketing", featured: true },
+  { url: reel("1058319456728179"), title: "Adin Boutique", tag: "Osvježi stil", group: "Marketing" },
+  { url: reel("3484208181877704"), title: "MobiFon Shop", group: "Marketing" },
+  { url: reel("1446142411906465"), title: "Sky Parking & Fly", group: "Marketing" },
+  { url: reel("28825078587089597"), title: "Sky Parking & Fly", group: "Marketing" },
+  { url: reel("27047715528147303"), title: "Priča uzgajivača", tag: "Video priča", group: "Marketing" },
 ];
+
+export const reelGroups: ReelGroup[] = ["Dron", "Vjenčanja", "Marketing"];
 
 export type Partner = {
   name: string;

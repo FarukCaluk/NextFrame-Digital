@@ -35,7 +35,7 @@ email klijent posjetioca sa popunjenim podacima (mailto) — ne zahtijeva nikaka
 
 **Da uključite automatsko slanje emaila** (bez da posjetilac mora ručno potvrditi slanje):
 
-1. Napravite besplatan nalog na [resend.com](https://resend.com) sa `farukcaluk12@gmail.com`.
+1. Napravite besplatan nalog na [resend.com](https://resend.com) sa `nextframe.digital2025@gmail.com`.
 2. Kopirajte API key i dodajte ga u Vercel project settings → Environment Variables kao
    `RESEND_API_KEY` (vidi [.env.example](.env.example)).
 3. Redeploy — nema potrebe mijenjati kod.
