@@ -27,10 +27,10 @@ export default function Gallery({ photos, categories }: { photos: Photo[]; categ
             type="button"
             onClick={() => setFilter(c)}
             aria-pressed={filter === c}
-            className={`h-10 border px-5 text-sm transition-colors active:translate-y-px ${
+            className={`h-11 rounded-full px-6 text-sm transition-colors active:translate-y-px ${
               filter === c
-                ? "border-accent bg-accent font-semibold text-background"
-                : "border-line text-foreground/80 hover:border-foreground"
+                ? "bg-accent font-semibold text-background"
+                : "glass text-foreground/85 hover:border-white/30"
             }`}
           >
             {c}
@@ -45,7 +45,7 @@ export default function Gallery({ photos, categories }: { photos: Photo[]; categ
             type="button"
             onClick={() => open(i)}
             aria-label={`Uvećaj: ${p.alt}`}
-            className="group mb-3 block w-full overflow-hidden bg-surface md:mb-4"
+            className="group mb-3 block w-full overflow-hidden rounded-surface bg-surface md:mb-4"
           >
             <Image
               src={p.src}
@@ -70,7 +70,7 @@ export default function Gallery({ photos, categories }: { photos: Photo[]; categ
           if (e.key === "ArrowRight") step(1);
           if (e.key === "ArrowLeft") step(-1);
         }}
-        className="fixed inset-0 m-0 h-dvh max-h-none w-dvw max-w-none bg-transparent p-0 backdrop:bg-black/90"
+        className="fixed inset-0 m-0 h-dvh max-h-none w-dvw max-w-none bg-transparent p-0 backdrop:bg-black/85 backdrop:backdrop-blur-sm"
       >
         <div data-close="1" className="relative h-full w-full p-4 md:p-12">
           {current && (
@@ -87,16 +87,16 @@ export default function Gallery({ photos, categories }: { photos: Photo[]; categ
           <button
             type="button"
             onClick={() => dialog.current?.close()}
-            className="absolute right-4 top-4 h-11 bg-background px-5 text-sm md:right-8 md:top-8"
+            className="glass-strong absolute right-4 top-4 h-11 rounded-full px-6 text-sm md:right-8 md:top-8"
           >
             Zatvori
           </button>
           {shown.length > 1 && (
             <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2 md:bottom-8">
-              <button type="button" onClick={() => step(-1)} aria-label="Prethodna" className="h-11 w-14 bg-background text-lg">
+              <button type="button" onClick={() => step(-1)} aria-label="Prethodna" className="glass-strong h-12 w-16 rounded-full text-lg">
                 ←
               </button>
-              <button type="button" onClick={() => step(1)} aria-label="Sljedeća" className="h-11 w-14 bg-background text-lg">
+              <button type="button" onClick={() => step(1)} aria-label="Sljedeća" className="glass-strong h-12 w-16 rounded-full text-lg">
                 →
               </button>
             </div>

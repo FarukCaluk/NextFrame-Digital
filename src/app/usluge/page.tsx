@@ -26,7 +26,7 @@ export default function UslugePage() {
       </div>
 
       {services.map((s) => (
-        <section key={s.slug} id={s.slug} className="scroll-mt-16 border-t border-line">
+        <section key={s.slug} id={s.slug} className="scroll-mt-24 border-t border-white/10">
           <div className="mx-auto grid max-w-7xl gap-8 px-5 py-16 md:px-8 md:py-24 lg:grid-cols-12 lg:gap-12">
             <div className="lg:col-span-5">
               <h2 className="font-display text-5xl font-semibold leading-none tracking-tighter md:text-7xl lg:sticky lg:top-28">
@@ -41,7 +41,7 @@ export default function UslugePage() {
                 <div className={`mt-10 grid gap-3 ${cols[s.images.length + (s.reels?.length ?? 0)]}`}>
                   {s.images.map((src, i) => (
                     <Reveal key={src} image delay={i * 120}>
-                      <div className="relative aspect-[3/4] overflow-hidden bg-surface">
+                      <div className="relative aspect-[3/4] overflow-hidden rounded-surface bg-surface">
                         <Image
                           src={src}
                           alt=""
@@ -53,8 +53,8 @@ export default function UslugePage() {
                       </div>
                     </Reveal>
                   ))}
-                  {s.reels?.map((id) => (
-                    <ReelEmbed key={id} id={id} title={s.title} />
+                  {s.reels?.map((url) => (
+                    <ReelEmbed key={url} url={url} title={s.title} />
                   ))}
                 </div>
               )}

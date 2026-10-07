@@ -26,6 +26,8 @@ export type Service = {
   preview?: string;
 };
 
+const reel = (id: string) => `https://www.facebook.com/reel/${id}/`;
+
 export const services: Service[] = [
   {
     slug: "vjencanja",
@@ -60,7 +62,7 @@ export const services: Service[] = [
     description:
       "Snimci iz zraka za gradove, prirodu i događaje. Pogledajte Neretvu iz zraka.",
     images: [],
-    reels: ["1636356934156393"],
+    reels: [reel("1636356934156393")],
   },
   {
     slug: "dizajn",
@@ -77,7 +79,7 @@ export const services: Service[] = [
     description:
       "Digitalni marketing i vođenje društvenih mreža: planiranje sadržaja, snimanje i objavljivanje.",
     images: [],
-    reels: ["3484208181877704", "1446142411906465"],
+    reels: [reel("3484208181877704"), reel("1446142411906465")],
   },
 ];
 
@@ -116,37 +118,43 @@ export const photos: Photo[] = [
 export const categories: Category[] = ["Vjenčanja", "Sport", "Automobili", "Događaji"];
 
 export type Reel = {
-  id: string;
+  url: string;
   title: string;
   tag?: string;
 };
 
-// Kakanj iz zraka (1381225033688486) is left out: Facebook blocks embedding it.
+// Left out because Facebook refuses to embed them: Kakanj iz zraka (1381225033688486)
+// and the Adin Boutique trenerke video post.
 export const reels: Reel[] = [
-  { id: "1636356934156393", title: "Neretva iz zraka", tag: "Dron" },
-  { id: "3484208181877704", title: "MobiFon Shop" },
-  { id: "1446142411906465", title: "Sky Parking & Fly" },
-  { id: "28825078587089597", title: "Sky Parking & Fly" },
+  { url: reel("1636356934156393"), title: "Neretva iz zraka", tag: "Dron" },
+  { url: reel("2085375498717968"), title: "Dr. Karić", tag: "Stomatološka ordinacija" },
+  { url: reel("882032824911856"), title: "Adin Boutique", tag: "Nova kolekcija" },
+  { url: reel("3484208181877704"), title: "MobiFon Shop" },
+  { url: reel("1058319456728179"), title: "Adin Boutique", tag: "Osvježi stil" },
+  { url: reel("1446142411906465"), title: "Sky Parking & Fly" },
+  { url: reel("28825078587089597"), title: "Sky Parking & Fly" },
 ];
 
 export type Partner = {
   name: string;
   logo?: string;
-  instagram: string;
+  href: string;
 };
 
 const L = "/images/partners/";
+const ig = (handle: string) => `https://www.instagram.com/${handle}/`;
 
 export const partners: Partner[] = [
-  { name: "Taekwondo kolektiv Bosna Rudar", logo: L + "bosna-rudar.jpg", instagram: "tkdkolektivbosnarudar" },
-  { name: "Stomatološka ordinacija Dr. Karić", logo: L + "dr-karic.jpg", instagram: "dr.karic_dent" },
-  { name: "MobiFon Shop", logo: L + "mobifon.jpg", instagram: "mobifon_shop" },
-  { name: "Sky Parking & Fly", logo: L + "sky-parking.jpg", instagram: "skyparkingandflyba" },
-  { name: "Caffe & Restaurant Rondo", logo: L + "rondo.jpg", instagram: "caffe.restaurant.rondo" },
-  { name: "SBK Mezz", logo: L + "sbk-mezz.jpg", instagram: "sbk_mezz" },
-  { name: "TS Group", logo: L + "ts-group.jpg", instagram: "tsgroup.doo" },
-  { name: "Wool & Mama", logo: L + "wool-and-mama.jpg", instagram: "woolandmama" },
-  { name: "My Space", instagram: "myspace28.03" },
+  { name: "Taekwondo kolektiv Bosna Rudar", logo: L + "bosna-rudar.jpg", href: ig("tkdkolektivbosnarudar") },
+  { name: "Stomatološka ordinacija Dr. Karić", logo: L + "dr-karic.jpg", href: ig("dr.karic_dent") },
+  { name: "Adin Boutique", logo: L + "adin-boutique.jpg", href: "https://www.facebook.com/adin.boutique" },
+  { name: "MobiFon Shop", logo: L + "mobifon.jpg", href: ig("mobifon_shop") },
+  { name: "Sky Parking & Fly", logo: L + "sky-parking.jpg", href: ig("skyparkingandflyba") },
+  { name: "Caffe & Restaurant Rondo", logo: L + "rondo.jpg", href: ig("caffe.restaurant.rondo") },
+  { name: "SBK Mezz", logo: L + "sbk-mezz.jpg", href: ig("sbk_mezz") },
+  { name: "TS Group", logo: L + "ts-group.jpg", href: ig("tsgroup.doo") },
+  { name: "Wool & Mama", logo: L + "wool-and-mama.jpg", href: ig("woolandmama") },
+  { name: "My Space", href: ig("myspace28.03") },
 ];
 
 export const logoWall = partners.filter((p) => p.logo);

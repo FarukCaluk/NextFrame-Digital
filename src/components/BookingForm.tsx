@@ -9,7 +9,7 @@ type Status = "idle" | "sending" | "sent" | "fallback";
 const today = new Date().toISOString().split("T")[0];
 
 const field =
-  "peer h-12 w-full border border-line bg-surface px-4 text-base outline-none transition-colors focus:border-accent user-invalid:border-red-400";
+  "peer h-12 w-full rounded-surface border border-white/25 bg-white/5 px-4 text-base outline-none transition-colors focus:border-accent user-invalid:border-red-400";
 const error = "mt-1.5 hidden text-sm text-red-400 peer-user-invalid:block";
 
 function buildMailto(data: Record<string, string>) {
@@ -57,13 +57,13 @@ export default function BookingForm() {
 
   if (status === "sent") {
     return (
-      <div className="border border-accent p-8 md:p-10">
+      <div className="glass rounded-surface border-accent p-8 md:p-10">
         <h2 className="font-display text-3xl font-semibold tracking-tight">Upit je poslan.</h2>
         <p className="mt-3 max-w-md text-muted">Hvala vam. Javljamo se na email ili telefon koji ste ostavili.</p>
         <button
           type="button"
           onClick={() => setStatus("idle")}
-          className="mt-8 h-12 border border-line px-6 text-sm transition-colors hover:border-foreground active:translate-y-px"
+          className="glass mt-8 h-12 rounded-full px-6 text-sm transition-colors hover:border-white/30 active:translate-y-px"
         >
           Pošalji novi upit
         </button>
@@ -122,7 +122,7 @@ export default function BookingForm() {
           id="opis"
           name="opis"
           rows={5}
-          className="w-full resize-none border border-line bg-surface px-4 py-3 text-base outline-none transition-colors focus:border-accent"
+          className="w-full resize-none rounded-surface border border-white/25 bg-white/5 px-4 py-3 text-base outline-none transition-colors focus:border-accent"
         />
       </div>
 
@@ -130,7 +130,7 @@ export default function BookingForm() {
         <button
           type="submit"
           disabled={status === "sending"}
-          className="inline-flex h-14 w-full items-center justify-center bg-accent px-10 font-semibold text-background transition-colors hover:bg-foreground active:translate-y-px disabled:opacity-60 sm:w-auto"
+          className="inline-flex h-14 w-full items-center justify-center rounded-full bg-accent px-10 font-semibold text-background transition-colors hover:bg-foreground active:translate-y-px disabled:opacity-60 sm:w-auto"
         >
           {status === "sending" ? "Šaljem..." : "Pošalji upit"}
         </button>

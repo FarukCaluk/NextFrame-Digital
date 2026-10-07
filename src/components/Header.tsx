@@ -21,30 +21,16 @@ export default function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 border-b border-line bg-background/85 backdrop-blur">
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 md:px-8">
-          <Link
-            href="/"
-            onClick={() => setOpen(false)}
-            className="flex items-center gap-3"
-          >
-            <Image
-              src="/images/logo-mark.png"
-              alt=""
-              width={300}
-              height={243}
-              className="h-7 w-auto"
-              priority
-            />
-            <span className="font-display text-lg font-semibold tracking-tight">
+      <header className="sticky top-3 z-50 px-3 pt-3 md:px-6">
+        <div className="glass-strong mx-auto flex h-14 max-w-6xl items-center justify-between rounded-full pl-5 pr-2">
+          <Link href="/" onClick={() => setOpen(false)} className="flex items-center gap-3">
+            <Image src="/images/logo-mark.png" alt="" width={300} height={243} className="h-6 w-auto" priority />
+            <span className="font-display text-base font-semibold tracking-tight">
               NextFrame <span className="text-accent">Digital</span>
             </span>
           </Link>
 
-          <nav
-            className="hidden items-center gap-9 lg:flex"
-            aria-label="Glavna navigacija"
-          >
+          <nav className="hidden items-center gap-8 lg:flex" aria-label="Glavna navigacija">
             {nav.map((item) => (
               <Link
                 key={item.href}
@@ -59,7 +45,7 @@ export default function Header() {
             ))}
             <Link
               href="/rezervacija"
-              className="inline-flex h-10 items-center bg-accent px-5 text-sm font-semibold text-background transition-colors hover:bg-foreground active:translate-y-px"
+              className="inline-flex h-10 items-center rounded-full bg-accent px-5 text-sm font-semibold text-background transition-colors hover:bg-foreground active:translate-y-px"
             >
               Zakaži termin
             </Link>
@@ -70,15 +56,15 @@ export default function Header() {
             aria-label={open ? "Zatvori meni" : "Otvori meni"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="relative h-10 w-10 lg:hidden"
+            className="relative h-10 w-10 rounded-full lg:hidden"
           >
             <span
-              className={`absolute left-2 top-[15px] h-px w-6 bg-foreground transition-transform duration-300 ${
+              className={`absolute left-2.5 top-[15px] h-px w-5 bg-foreground transition-transform duration-300 ${
                 open ? "translate-y-[5px] rotate-45" : ""
               }`}
             />
             <span
-              className={`absolute left-2 top-[25px] h-px w-6 bg-foreground transition-transform duration-300 ${
+              className={`absolute left-2.5 top-[25px] h-px w-5 bg-foreground transition-transform duration-300 ${
                 open ? "-translate-y-[5px] -rotate-45" : ""
               }`}
             />
@@ -90,11 +76,11 @@ export default function Header() {
       {open && (
         <nav
           aria-label="Mobilna navigacija"
-          className="fixed inset-x-0 bottom-0 top-16 z-40 flex flex-col justify-between bg-background px-5 pb-10 pt-8 lg:hidden"
+          className="glass-strong fixed inset-0 z-40 flex flex-col justify-between rounded-none border-0 px-6 pb-8 pt-28 lg:hidden"
         >
           <ul className="flex flex-col">
             {[{ href: "/", label: "Početna" }, ...nav].map((item) => (
-              <li key={item.href} className="border-b border-line">
+              <li key={item.href} className="border-b border-white/10">
                 <Link
                   href={item.href}
                   onClick={() => setOpen(false)}
@@ -110,7 +96,7 @@ export default function Header() {
           <Link
             href="/rezervacija"
             onClick={() => setOpen(false)}
-            className="flex h-14 items-center justify-center bg-accent text-base font-semibold text-background active:translate-y-px"
+            className="flex h-14 items-center justify-center rounded-full bg-accent text-base font-semibold text-background active:translate-y-px"
           >
             Zakaži termin
           </Link>

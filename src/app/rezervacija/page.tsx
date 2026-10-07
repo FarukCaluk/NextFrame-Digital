@@ -13,7 +13,7 @@ export default function RezervacijaPage() {
     <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 md:px-8 lg:grid-cols-12 lg:gap-16 lg:py-24">
       <div className="lg:col-span-5">
         <h1 className="font-display text-6xl font-semibold leading-[0.9] tracking-tighter md:text-8xl">Zakaži termin</h1>
-        <p className="mt-8 max-w-sm text-lg text-muted">Pošaljite datum i kratak opis. Javljamo se na email ili telefon.</p>
+        <p className="mt-8 max-w-sm text-lg text-foreground/70">Pošaljite datum i kratak opis. Javljamo se na email ili telefon.</p>
         <ul className="mt-10 space-y-3 text-sm">
           <li>
             <a href={`mailto:${site.email}`} className="underline underline-offset-8 hover:text-accent">
@@ -27,7 +27,7 @@ export default function RezervacijaPage() {
           </li>
         </ul>
       </div>
-      <div className="lg:col-span-7">
+      <div className="glass self-start rounded-surface p-6 md:p-10 lg:col-span-7">
         <Suspense>
           <BookingForm />
         </Suspense>

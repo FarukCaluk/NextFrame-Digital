@@ -14,7 +14,8 @@ export default function ONamaPage() {
     <>
       <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 md:px-8 lg:grid-cols-12 lg:gap-16 lg:py-24">
         <div className="lg:col-span-5">
-          <div className="relative aspect-[9/13] overflow-hidden bg-surface lg:sticky lg:top-24">
+          <div className="glass rounded-surface p-2 lg:sticky lg:top-28">
+            <div className="relative aspect-[9/13] overflow-hidden rounded-[0.8rem] bg-surface">
             <Image
               src="/images/armin.webp"
               alt="Armin Šolbić sa gimbalom i kamerom"
@@ -24,6 +25,7 @@ export default function ONamaPage() {
               sizes="(max-width: 1024px) 100vw, 40vw"
               className="object-cover object-[62%_30%]"
             />
+            </div>
           </div>
         </div>
 
@@ -31,7 +33,7 @@ export default function ONamaPage() {
           <h1 className="font-display text-5xl font-semibold leading-[0.95] tracking-tighter md:text-7xl">
             Studio koji vodi Armin Šolbić.
           </h1>
-          <div className="mt-10 max-w-xl space-y-5 text-lg text-muted">
+          <div className="mt-10 max-w-xl space-y-5 text-lg text-foreground/70">
             <p>
               NextFrame Digital je kreativni studio iz Kaknja, specijalizovan za fotografiju, video produkciju i
               digitalni marketing. Osnivač je Armin Šolbić.
@@ -56,7 +58,7 @@ export default function ONamaPage() {
       </div>
 
       <Reveal image className="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-36">
-        <div className="relative h-[60dvh] overflow-hidden bg-surface">
+        <div className="relative h-[60dvh] overflow-hidden rounded-surface bg-surface">
           <Image
             src="/images/portfolio/sport-taekwondo-majstor.jpg"
             alt="Taekwondo trener ispred polaznika u dvorani"
