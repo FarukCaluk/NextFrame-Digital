@@ -116,6 +116,14 @@ export const reels: Reel[] = [
 
 export const reelGroups: ReelGroup[] = ["Dron", "Vjenčanja", "Marketing"];
 
+/** The long film shown large above the reels. It lives on YouTube; the poster is a frame from it. */
+export const featuredVideo = {
+  youtube: "63Kq0qksdk8",
+  title: "Tuning Show Breza – Edition One 2026",
+  note: "Aftermovie prvog tuning showa u Brezi, sa snimcima iz zraka.",
+  poster: "/images/video/breza-edition-one.jpg",
+};
+
 /** A picture on the partners page. `contain` shows designed graphics whole; `wide` takes two places. */
 export type Shot = { src: string; contain?: boolean; wide?: boolean; position?: string };
 

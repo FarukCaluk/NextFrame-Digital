@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import AlbumCard from "@/components/AlbumCard";
 import CtaBand from "@/components/CtaBand";
+import FeaturedVideo from "@/components/FeaturedVideo";
 import Gallery from "@/components/Gallery";
 import GalleryTabs, { type Tab } from "@/components/GalleryTabs";
 import Reveal from "@/components/Reveal";
@@ -50,6 +51,9 @@ function Videos() {
   return (
     <div className={inner}>
       <Heading title="Video" />
+      <Reveal className="mb-14 md:mb-20">
+        <FeaturedVideo />
+      </Reveal>
       <div className="space-y-14">
         {reelGroups.map((g) => (
           <div key={g}>

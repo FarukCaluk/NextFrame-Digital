@@ -1,6 +1,7 @@
 import Link from "next/link";
 import AlbumCard from "@/components/AlbumCard";
 import CtaBand from "@/components/CtaBand";
+import FeaturedVideo from "@/components/FeaturedVideo";
 import FilmHero from "@/components/FilmHero";
 import PartnerMarquee from "@/components/PartnerMarquee";
 import Reveal from "@/components/Reveal";
@@ -128,6 +129,9 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-28">
           <Reveal>
             <h2 className="mb-12 font-display text-4xl font-semibold tracking-tight md:mb-16 md:text-6xl">Video</h2>
+          </Reveal>
+          <Reveal className="mb-14 md:mb-20">
+            <FeaturedVideo />
           </Reveal>
           <VideoReels items={reels.filter((r) => r.featured)} />
         </div>
