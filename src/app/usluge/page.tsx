@@ -4,7 +4,8 @@ import type { Metadata } from "next";
 import CtaBand from "@/components/CtaBand";
 import Reveal from "@/components/Reveal";
 import { ReelCard } from "@/components/VideoReels";
-import { designs, reels, services } from "@/lib/site-data";
+import { designs } from "@/lib/albums";
+import { reels, services } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "Usluge",
@@ -62,7 +63,7 @@ export default function UslugePage() {
 
                 {s.slug === "dizajn" && (
                   <div className="mt-10 columns-2 gap-3 sm:columns-3">
-                    {designs.slice(0, 6).map((d) => (
+                    {[8, 6, 4, 1, 0, 7].map((n) => designs[n]).map((d) => (
                       <Image
                         key={d.src}
                         src={d.src}

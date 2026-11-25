@@ -11,13 +11,14 @@ export default function PartnerMarquee() {
             <ul key={copy} aria-hidden={copy === 1} className="flex shrink-0 items-center gap-12 pr-12">
               {logoWall.map((p) => (
                 <li key={p.name}>
-                  <Link href="/partneri" tabIndex={copy === 1 ? -1 : undefined}>
+                  <Link href="/partneri" tabIndex={copy === 1 ? -1 : undefined} className="block rounded-full">
                     <Image
                       src={p.logo!}
                       alt={copy === 0 ? p.name : ""}
-                      width={48}
-                      height={48}
-                      className="h-12 w-12 rounded-full object-cover opacity-70 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0"
+                      width={56}
+                      height={56}
+                      quality={90}
+                      className="h-14 w-14 rounded-full object-cover ring-1 ring-white/15"
                     />
                   </Link>
                 </li>

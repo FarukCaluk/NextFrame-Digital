@@ -1,101 +1,93 @@
-import Image from "next/image";
 import Link from "next/link";
+import AlbumCard from "@/components/AlbumCard";
 import CtaBand from "@/components/CtaBand";
+import FilmHero from "@/components/FilmHero";
 import PartnerMarquee from "@/components/PartnerMarquee";
 import Reveal from "@/components/Reveal";
 import ServicesIndex from "@/components/ServicesIndex";
 import VideoReels from "@/components/VideoReels";
+import { album, photo } from "@/lib/albums";
+import type { Frame } from "@/lib/film";
 import { reels } from "@/lib/site-data";
 
-const bento = [
-  {
-    src: "/images/portfolio/vjencanja-stepenice.jpg",
-    alt: "Mladenci na stepenicama modernog objekta",
-    cell: "col-span-2 aspect-[4/5] lg:aspect-auto lg:col-span-4 lg:row-span-6",
-    pos: "object-center",
-  },
-  {
-    src: "/images/portfolio/auto-audi-krov.jpg",
-    alt: "Audi A3 na krovu parking garaže",
-    cell: "col-span-2 aspect-[3/2] lg:aspect-auto lg:col-span-8 lg:row-span-3",
-    pos: "object-center",
-  },
-  {
-    src: "/images/portfolio/sport-fudbaler.jpg",
-    alt: "Portret mladog fudbalera na terenu",
-    cell: "aspect-square lg:aspect-auto lg:col-span-4 lg:row-span-3",
-    pos: "object-top",
-  },
-  {
-    src: "/images/portfolio/sport-kickbox.jpg",
-    alt: "Trener i kickboks takmičar u uglu ringa",
-    cell: "aspect-square lg:aspect-auto lg:col-span-4 lg:row-span-3",
-    pos: "object-center",
-  },
-];
+const featured = ["vjencanje-02", "bilijar", "vjencanje-08", "kakanjski-dani", "dr-karic", "dejanbaa"].map(album);
+
+// Photos on the 3D film, in order: portrait and landscape mostly take turns, cars are spread out.
+const film: Frame[] = (
+  [
+    ["vjencanje-02", 7],
+    ["dejanbaa", 2],
+    ["bilijar", 3],
+    ["vjencanje-04", 4],
+    ["sweetspot", 1],
+    ["dr-karic", 3],
+    ["vjencanje-04", 7],
+    ["dejanbaa", 3],
+    ["kakanjski-dani", 3],
+    ["vjencanje-06", 10],
+    ["fitness-trenerica", 1],
+    ["vjencanje-02", 12],
+    ["spartak-gym", 1],
+    ["vjencanje-08", 7],
+    ["dejanbaa", 1],
+    ["caffe-gotiva", 2],
+    ["vjencanje-06", 9],
+    ["vjencanje-04", 9],
+    ["adin-boutique", 2],
+    ["kakanjski-dani", 4],
+    ["matura", 3],
+    ["sweetspot", 2],
+    ["bosana-foundation", 2],
+    ["vjencanje-08", 3],
+  ] as const
+).map(([slug, n]) => {
+  const p = photo(slug, n);
+  return {
+    slug,
+    title: album(slug).title,
+    src: p.src,
+    aspect: p.w / p.h,
+    // The same optimized files next/image serves; the 3D scene picks the size it needs.
+    urls: [384, 640, 828, 1080].map(
+      (w) => [w, `/_next/image?url=${encodeURIComponent(p.src)}&w=${w}&q=90`] as [number, string],
+    ),
+  };
+});
 
 export default function Home() {
   return (
     <>
-      <section className="mx-auto grid min-h-[calc(100dvh-5rem)] max-w-7xl items-center gap-12 px-5 py-12 md:px-8 lg:grid-cols-12 lg:gap-8 lg:py-0">
-        <div className="lg:col-span-7">
+      <FilmHero frames={film}>
+        <div className="mx-auto grid w-full max-w-7xl gap-6 px-5 pt-10 md:gap-8 md:px-8 md:pt-14 lg:grid-cols-12 lg:items-end">
           <h1
-            className="rise font-display text-[clamp(3.4rem,8.2vw,7.5rem)] font-semibold leading-[0.9] tracking-tighter"
+            className="rise font-display text-[clamp(3.4rem,8.2vw,7.5rem)] font-semibold leading-[0.9] tracking-tighter lg:col-span-7"
             style={{ "--i": 0 } as React.CSSProperties}
           >
             <span className="block">Od ideje</span>
             <span className="block text-accent">do vizije.</span>
           </h1>
-          <p className="rise mt-8 max-w-md text-lg text-foreground/70" style={{ "--i": 2 } as React.CSSProperties}>
-            Fotografija, video, dron, dizajn i marketing na jednom mjestu. Za vjenčanja, sportske klubove i brendove.
-          </p>
-          <div
-            className="rise mt-10 flex flex-wrap items-center gap-3"
-            style={{ "--i": 3 } as React.CSSProperties}
-          >
-            <Link
-              href="/rezervacija"
-              className="inline-flex h-14 items-center rounded-full bg-accent px-8 font-semibold text-background transition-colors hover:bg-foreground active:translate-y-px"
-            >
-              Zakaži termin
-            </Link>
-            <Link
-              href="/galerija"
-              className="glass group inline-flex h-14 items-center gap-2 rounded-full px-7 text-sm font-medium transition-colors hover:border-white/30 active:translate-y-px"
-            >
-              Pogledaj radove
-              <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-            </Link>
-          </div>
-        </div>
-
-        <div className="rise relative lg:col-span-5" style={{ "--i": 1 } as React.CSSProperties}>
-          <div className="glass rounded-surface p-2">
-            <div className="relative h-[56dvh] overflow-hidden rounded-[0.8rem] lg:h-[min(70dvh,650px)]">
-              <Image
-                src="/images/portfolio/vjencanja-stepenice.jpg"
-                alt="Mladenci na stepenicama modernog objekta"
-                fill
-                priority
-                quality={90}
-                sizes="(max-width: 1024px) 100vw, 40vw"
-                className="drift object-cover"
-              />
+          <div className="lg:col-span-5 lg:pb-2">
+            <p className="rise max-w-md text-base text-foreground/75 md:text-lg" style={{ "--i": 1 } as React.CSSProperties}>
+              Fotografija, video, dron, dizajn i marketing na jednom mjestu. Za vjenčanja, sportske klubove i brendove.
+            </p>
+            <div className="rise mt-6 flex flex-wrap items-center gap-3 md:mt-8" style={{ "--i": 2 } as React.CSSProperties}>
+              <Link
+                href="/rezervacija"
+                className="inline-flex h-14 items-center rounded-full bg-accent px-8 font-semibold text-background transition-colors hover:bg-foreground active:translate-y-px"
+              >
+                Zakaži termin
+              </Link>
+              <Link
+                href="/galerija"
+                className="glass group inline-flex h-14 items-center gap-2 rounded-full px-7 text-sm font-medium transition-colors hover:border-white/30 active:translate-y-px"
+              >
+                Pogledaj radove
+                <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+              </Link>
             </div>
           </div>
-          <div className="glass absolute -bottom-6 -left-4 hidden w-2/5 rounded-surface p-1.5 md:block lg:-left-12">
-            <Image
-              src="/images/portfolio/sport-kickbox.jpg"
-              alt="Trener i kickboks takmičar u uglu ringa"
-              width={1616}
-              height={1080}
-              quality={90}
-              sizes="20vw"
-              className="h-auto w-full rounded-[0.9rem]"
-            />
-          </div>
         </div>
-      </section>
+      </FilmHero>
 
       <PartnerMarquee />
 
@@ -118,25 +110,17 @@ export default function Home() {
               <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
             </Link>
           </Reveal>
-          <div className="grid grid-cols-2 gap-3 md:gap-4 lg:h-[780px] lg:grid-cols-12 lg:grid-rows-6">
-            {bento.map((b, i) => (
-              <Reveal key={b.src} image delay={i * 120} className={b.cell}>
-                <Link
-                  href="/galerija"
-                  className="group relative block h-full w-full overflow-hidden rounded-surface bg-surface"
-                >
-                  <Image
-                    src={b.src}
-                    alt={b.alt}
-                    fill
-                    quality={90}
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className={`object-cover ${b.pos} transition-transform duration-700 group-hover:scale-[1.04]`}
+          <ul className="grid grid-cols-2 gap-3 md:gap-6 lg:grid-cols-3">
+            {featured.map((a, i) => (
+              <li key={a.slug}>
+                <Reveal delay={(i % 3) * 100} className="h-full">
+                  <AlbumCard
+                    album={{ slug: a.slug, title: a.title, category: a.category, cover: a.cover, count: a.photos.length }}
                   />
-                </Link>
-              </Reveal>
+                </Reveal>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 

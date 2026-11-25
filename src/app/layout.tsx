@@ -37,7 +37,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="bs" className={`${body.variable} ${display.variable} h-full`}>
+    <html lang="bs" data-scroll-behavior="smooth" className={`${body.variable} ${display.variable} h-full`}>
       <body className="flex min-h-full flex-col">
         <Header />
         <main className="flex-1">{children}</main>

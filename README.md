@@ -2,8 +2,8 @@
 
 Sajt za NextFrame Digital – foto, video, dron i dizajn produkciju (Armin Šolbić).
 
-Next.js 16 (App Router) + TypeScript + Tailwind CSS 4. Bez UI biblioteka ili animacionih
-paketa — scroll-reveal animacije su napravljene direktno preko `IntersectionObserver`
+Next.js 16 (App Router) + TypeScript + Tailwind CSS 4. Bez UI, 3D ili animacionih
+biblioteka — scroll-reveal animacije su napravljene preko `IntersectionObserver`
 ([src/components/Reveal.tsx](src/components/Reveal.tsx)).
 
 ## Stranice
@@ -11,12 +11,25 @@ paketa — scroll-reveal animacije su napravljene direktno preko `IntersectionOb
 - `/` – početna
 - `/o-nama` – o nama
 - `/usluge` – vjenčanja, foto i video, dron, dizajn, marketing
-- `/galerija` – video (Facebook reels) i fotografije
+- `/galerija` – albumi po vrsti, video (Facebook reels) i dizajn, u tabovima (`/galerija#sport`)
+- `/galerija/<album>` – jedan album sa uvećavanjem fotografija
 - `/partneri` – partneri i klijenti
 - `/rezervacija` – forma za rezervaciju termina
 
-Sav sadržaj (usluge, fotografije, video, partneri) je u [src/lib/site-data.ts](src/lib/site-data.ts).
-Fotografije su originali u `public/images/portfolio`, bez ponovne kompresije.
+Usluge, video i partneri (sa do tri slike po partneru) su u [src/lib/site-data.ts](src/lib/site-data.ts).
+
+## 3D traka na početnoj
+
+Filmske trake sa fotografijama crtaju se u čistom WebGL2 ([src/lib/film.ts](src/lib/film.ts)),
+a miš, dodir i klik obrađuje [src/components/FilmHero.tsx](src/components/FilmHero.tsx). Koje su
+fotografije na traci bira se na vrhu [src/app/page.tsx](src/app/page.tsx). Bez WebGL2 prikazuje se
+običan red fotografija, a uz isključene animacije u sistemu traka miruje.
+
+## Fotografije
+
+Svaki album je folder u `public/images/radovi` (fajlovi `01.jpg`, `02.jpg`, ...), a spisak sa
+dimenzijama je u [src/lib/albums.json](src/lib/albums.json). Fotografije su web kopije (duža
+stranica 2560 px, JPEG 90) napravljene iz originala od 6000 px, koji nisu u repozitoriju.
 
 ## Razvoj
 

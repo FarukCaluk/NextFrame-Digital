@@ -1,7 +1,6 @@
 import Image from "next/image";
 import type { Metadata } from "next";
 import CtaBand from "@/components/CtaBand";
-import Reveal from "@/components/Reveal";
 import { site } from "@/lib/site-data";
 
 export const metadata: Metadata = {
@@ -56,19 +55,6 @@ export default function ONamaPage() {
           </div>
         </div>
       </div>
-
-      <Reveal image className="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-36">
-        <div className="relative h-[60dvh] overflow-hidden rounded-surface bg-surface">
-          <Image
-            src="/images/portfolio/sport-taekwondo-majstor.jpg"
-            alt="Taekwondo trener ispred polaznika u dvorani"
-            fill
-            quality={90}
-            sizes="100vw"
-            className="object-cover object-[65%_40%]"
-          />
-        </div>
-      </Reveal>
 
       <CtaBand />
     </>

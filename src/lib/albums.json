@@ -1,0 +1,936 @@
+{
+ "albums": [
+  {
+   "slug": "vjencanje-01",
+   "title": "Vjenčanje 1",
+   "category": "Vjenčanja",
+   "cover": 2,
+   "photos": [
+    {
+     "src": "/images/radovi/vjencanje-01/01.jpg",
+     "w": 2560,
+     "h": 1707
+    },
+    {
+     "src": "/images/radovi/vjencanje-01/02.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-01/03.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-01/04.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-01/05.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-01/06.jpg",
+     "w": 1707,
+     "h": 2560
+    }
+   ]
+  },
+  {
+   "slug": "vjencanje-02",
+   "title": "Vjenčanje 2",
+   "category": "Vjenčanja",
+   "cover": 6,
+   "photos": [
+    {
+     "src": "/images/radovi/vjencanje-02/01.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-02/02.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-02/03.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-02/04.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-02/05.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-02/06.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-02/07.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-02/08.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-02/09.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-02/10.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-02/11.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-02/12.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-02/13.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-02/14.jpg",
+     "w": 1707,
+     "h": 2560
+    }
+   ]
+  },
+  {
+   "slug": "vjencanje-03",
+   "title": "Vjenčanje 3",
+   "category": "Vjenčanja",
+   "cover": 1,
+   "photos": [
+    {
+     "src": "/images/radovi/vjencanje-03/01.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-03/02.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-03/03.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-03/04.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-03/05.jpg",
+     "w": 1707,
+     "h": 2560
+    }
+   ]
+  },
+  {
+   "slug": "vjencanje-04",
+   "title": "Vjenčanje 4",
+   "category": "Vjenčanja",
+   "cover": 7,
+   "photos": [
+    {
+     "src": "/images/radovi/vjencanje-04/01.jpg",
+     "w": 2560,
+     "h": 1707
+    },
+    {
+     "src": "/images/radovi/vjencanje-04/02.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-04/03.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-04/04.jpg",
+     "w": 2560,
+     "h": 1707
+    },
+    {
+     "src": "/images/radovi/vjencanje-04/05.jpg",
+     "w": 2560,
+     "h": 1707
+    },
+    {
+     "src": "/images/radovi/vjencanje-04/06.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-04/07.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-04/08.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-04/09.jpg",
+     "w": 2560,
+     "h": 1707
+    },
+    {
+     "src": "/images/radovi/vjencanje-04/10.jpg",
+     "w": 1707,
+     "h": 2560
+    }
+   ]
+  },
+  {
+   "slug": "vjencanje-05",
+   "title": "Vjenčanje 5",
+   "category": "Vjenčanja",
+   "cover": 3,
+   "photos": [
+    {
+     "src": "/images/radovi/vjencanje-05/01.jpg",
+     "w": 2560,
+     "h": 1707
+    },
+    {
+     "src": "/images/radovi/vjencanje-05/02.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-05/03.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-05/04.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-05/05.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-05/06.jpg",
+     "w": 2560,
+     "h": 1707
+    },
+    {
+     "src": "/images/radovi/vjencanje-05/07.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-05/08.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-05/09.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-05/10.jpg",
+     "w": 1707,
+     "h": 2560
+    }
+   ]
+  },
+  {
+   "slug": "vjencanje-06",
+   "title": "Vjenčanje 6",
+   "category": "Vjenčanja",
+   "cover": 8,
+   "photos": [
+    {
+     "src": "/images/radovi/vjencanje-06/01.jpg",
+     "w": 2560,
+     "h": 1707
+    },
+    {
+     "src": "/images/radovi/vjencanje-06/02.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-06/03.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-06/04.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-06/05.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-06/06.jpg",
+     "w": 2560,
+     "h": 1707
+    },
+    {
+     "src": "/images/radovi/vjencanje-06/07.jpg",
+     "w": 2560,
+     "h": 1707
+    },
+    {
+     "src": "/images/radovi/vjencanje-06/08.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-06/09.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-06/10.jpg",
+     "w": 2560,
+     "h": 1707
+    },
+    {
+     "src": "/images/radovi/vjencanje-06/11.jpg",
+     "w": 1707,
+     "h": 2560
+    }
+   ]
+  },
+  {
+   "slug": "vjencanje-07",
+   "title": "Vjenčanje 7",
+   "category": "Vjenčanja",
+   "cover": 3,
+   "photos": [
+    {
+     "src": "/images/radovi/vjencanje-07/01.jpg",
+     "w": 2560,
+     "h": 1707
+    },
+    {
+     "src": "/images/radovi/vjencanje-07/02.jpg",
+     "w": 2560,
+     "h": 1707
+    },
+    {
+     "src": "/images/radovi/vjencanje-07/03.jpg",
+     "w": 2560,
+     "h": 1707
+    },
+    {
+     "src": "/images/radovi/vjencanje-07/04.jpg",
+     "w": 1707,
+     "h": 2560
+    }
+   ]
+  },
+  {
+   "slug": "vjencanje-08",
+   "title": "Vjenčanje 8",
+   "category": "Vjenčanja",
+   "cover": 6,
+   "photos": [
+    {
+     "src": "/images/radovi/vjencanje-08/01.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-08/02.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-08/03.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-08/04.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-08/05.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-08/06.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-08/07.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-08/08.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-08/09.jpg",
+     "w": 1707,
+     "h": 2560
+    }
+   ]
+  },
+  {
+   "slug": "vjencanje-09",
+   "title": "Vjenčanje 9",
+   "category": "Vjenčanja",
+   "cover": 1,
+   "photos": [
+    {
+     "src": "/images/radovi/vjencanje-09/01.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-09/02.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-09/03.jpg",
+     "w": 1707,
+     "h": 2560
+    }
+   ]
+  },
+  {
+   "slug": "vjencanje-10",
+   "title": "Vjenčanje 10",
+   "category": "Vjenčanja",
+   "cover": 0,
+   "photos": [
+    {
+     "src": "/images/radovi/vjencanje-10/01.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-10/02.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-10/03.jpg",
+     "w": 2560,
+     "h": 1707
+    },
+    {
+     "src": "/images/radovi/vjencanje-10/04.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-10/05.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/vjencanje-10/06.jpg",
+     "w": 1707,
+     "h": 2560
+    }
+   ]
+  },
+  {
+   "slug": "spartak-gym",
+   "title": "Spartak GYM",
+   "category": "Sport",
+   "cover": 0,
+   "photos": [
+    {
+     "src": "/images/radovi/spartak-gym/01.jpg",
+     "w": 2560,
+     "h": 1707
+    },
+    {
+     "src": "/images/radovi/spartak-gym/02.jpg",
+     "w": 2560,
+     "h": 1707
+    },
+    {
+     "src": "/images/radovi/spartak-gym/03.jpg",
+     "w": 2560,
+     "h": 1707
+    },
+    {
+     "src": "/images/radovi/spartak-gym/04.jpg",
+     "w": 2560,
+     "h": 1707
+    },
+    {
+     "src": "/images/radovi/spartak-gym/05.jpg",
+     "w": 1707,
+     "h": 2560
+    }
+   ]
+  },
+  {
+   "slug": "fitness-trenerica",
+   "title": "Fitness trenerica",
+   "category": "Sport",
+   "cover": 0,
+   "photos": [
+    {
+     "src": "/images/radovi/fitness-trenerica/01.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/fitness-trenerica/02.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/fitness-trenerica/03.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/fitness-trenerica/04.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/fitness-trenerica/05.jpg",
+     "w": 1707,
+     "h": 2560
+    }
+   ]
+  },
+  {
+   "slug": "sbk-mezz-turnir",
+   "title": "SBK Mezz turnir",
+   "category": "Sport",
+   "cover": 2,
+   "photos": [
+    {
+     "src": "/images/radovi/sbk-mezz-turnir/01.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/sbk-mezz-turnir/02.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/sbk-mezz-turnir/03.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/sbk-mezz-turnir/04.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/sbk-mezz-turnir/05.jpg",
+     "w": 1707,
+     "h": 2560
+    }
+   ]
+  },
+  {
+   "slug": "bilijar",
+   "title": "Bilijar photoshoot",
+   "category": "Sport",
+   "cover": 2,
+   "photos": [
+    {
+     "src": "/images/radovi/bilijar/01.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/bilijar/02.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/bilijar/03.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/bilijar/04.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/bilijar/05.jpg",
+     "w": 1707,
+     "h": 2560
+    }
+   ]
+  },
+  {
+   "slug": "kakanjski-dani",
+   "title": "Kakanjski dani, koncert Dragana Stojkovića Bosanca",
+   "category": "Događaji",
+   "cover": 2,
+   "photos": [
+    {
+     "src": "/images/radovi/kakanjski-dani/01.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/kakanjski-dani/02.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/kakanjski-dani/03.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/kakanjski-dani/04.jpg",
+     "w": 2560,
+     "h": 1707
+    }
+   ]
+  },
+  {
+   "slug": "matura",
+   "title": "Matura",
+   "category": "Događaji",
+   "cover": 2,
+   "photos": [
+    {
+     "src": "/images/radovi/matura/01.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/matura/02.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/matura/03.jpg",
+     "w": 1707,
+     "h": 2560
+    }
+   ]
+  },
+  {
+   "slug": "posjeta-ministru",
+   "title": "Posjeta federalnom ministru unutrašnjih poslova",
+   "category": "Događaji",
+   "cover": 1,
+   "photos": [
+    {
+     "src": "/images/radovi/posjeta-ministru/01.jpg",
+     "w": 2560,
+     "h": 1707
+    },
+    {
+     "src": "/images/radovi/posjeta-ministru/02.jpg",
+     "w": 1707,
+     "h": 2560
+    }
+   ]
+  },
+  {
+   "slug": "bosana-foundation",
+   "title": "Bosana Foundation",
+   "category": "Događaji",
+   "cover": 0,
+   "photos": [
+    {
+     "src": "/images/radovi/bosana-foundation/01.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/bosana-foundation/02.jpg",
+     "w": 2560,
+     "h": 1707
+    }
+   ]
+  },
+  {
+   "slug": "adin-boutique",
+   "title": "Adin Boutique",
+   "category": "Brendovi",
+   "cover": 1,
+   "photos": [
+    {
+     "src": "/images/radovi/adin-boutique/01.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/adin-boutique/02.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/adin-boutique/03.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/adin-boutique/04.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/adin-boutique/05.jpg",
+     "w": 1707,
+     "h": 2560
+    }
+   ]
+  },
+  {
+   "slug": "dr-karic",
+   "title": "Stomatološka ordinacija Dr. Karić",
+   "category": "Brendovi",
+   "cover": 1,
+   "photos": [
+    {
+     "src": "/images/radovi/dr-karic/01.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/dr-karic/02.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/dr-karic/03.jpg",
+     "w": 2560,
+     "h": 1707
+    },
+    {
+     "src": "/images/radovi/dr-karic/04.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/dr-karic/05.jpg",
+     "w": 2560,
+     "h": 1707
+    },
+    {
+     "src": "/images/radovi/dr-karic/06.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/dr-karic/07.jpg",
+     "w": 1707,
+     "h": 2560
+    }
+   ]
+  },
+  {
+   "slug": "dah-planine",
+   "title": "Vikendica Dah Planine",
+   "category": "Brendovi",
+   "cover": 0,
+   "photos": [
+    {
+     "src": "/images/radovi/dah-planine/01.jpg",
+     "w": 1024,
+     "h": 1536
+    },
+    {
+     "src": "/images/radovi/dah-planine/02.jpg",
+     "w": 1122,
+     "h": 1402
+    },
+    {
+     "src": "/images/radovi/dah-planine/03.jpg",
+     "w": 1122,
+     "h": 1402
+    },
+    {
+     "src": "/images/radovi/dah-planine/04.jpg",
+     "w": 1122,
+     "h": 1402
+    },
+    {
+     "src": "/images/radovi/dah-planine/05.jpg",
+     "w": 1122,
+     "h": 1402
+    },
+    {
+     "src": "/images/radovi/dah-planine/06.jpg",
+     "w": 1122,
+     "h": 1402
+    },
+    {
+     "src": "/images/radovi/dah-planine/07.jpg",
+     "w": 1122,
+     "h": 1402
+    },
+    {
+     "src": "/images/radovi/dah-planine/08.jpg",
+     "w": 1122,
+     "h": 1402
+    }
+   ]
+  },
+  {
+   "slug": "caffe-gotiva",
+   "title": "Caffe bar Gotiva",
+   "category": "Brendovi",
+   "cover": 1,
+   "photos": [
+    {
+     "src": "/images/radovi/caffe-gotiva/01.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/caffe-gotiva/02.jpg",
+     "w": 1707,
+     "h": 2560
+    }
+   ]
+  },
+  {
+   "slug": "rondo",
+   "title": "Caffe & Restaurant Rondo",
+   "category": "Brendovi",
+   "cover": 0,
+   "photos": [
+    {
+     "src": "/images/radovi/rondo/01.jpg",
+     "w": 1707,
+     "h": 2560
+    }
+   ]
+  },
+  {
+   "slug": "sweetspot",
+   "title": "SweetSpot by Dejanbaa",
+   "category": "Brendovi",
+   "cover": 1,
+   "photos": [
+    {
+     "src": "/images/radovi/sweetspot/01.jpg",
+     "w": 1707,
+     "h": 2560
+    },
+    {
+     "src": "/images/radovi/sweetspot/02.jpg",
+     "w": 1707,
+     "h": 2560
+    }
+   ]
+  },
+  {
+   "slug": "dejanbaa",
+   "title": "DejanBaa photoshoot",
+   "category": "Brendovi",
+   "cover": 2,
+   "photos": [
+    {
+     "src": "/images/radovi/dejanbaa/01.jpg",
+     "w": 2560,
+     "h": 1707
+    },
+    {
+     "src": "/images/radovi/dejanbaa/02.jpg",
+     "w": 2560,
+     "h": 1707
+    },
+    {
+     "src": "/images/radovi/dejanbaa/03.jpg",
+     "w": 2560,
+     "h": 1707
+    }
+   ]
+  }
+ ],
+ "designs": [
+  {
+   "src": "/images/radovi/dizajn/01.jpg",
+   "w": 941,
+   "h": 1672
+  },
+  {
+   "src": "/images/radovi/dizajn/02.jpg",
+   "w": 1920,
+   "h": 2400
+  },
+  {
+   "src": "/images/radovi/dizajn/03.jpg",
+   "w": 1920,
+   "h": 2400
+  },
+  {
+   "src": "/images/radovi/dizajn/04.jpg",
+   "w": 941,
+   "h": 1672
+  },
+  {
+   "src": "/images/radovi/dizajn/05.jpg",
+   "w": 1092,
+   "h": 1440
+  },
+  {
+   "src": "/images/radovi/dizajn/06.jpg",
+   "w": 1254,
+   "h": 1254
+  },
+  {
+   "src": "/images/radovi/dizajn/07.jpg",
+   "w": 1086,
+   "h": 1448
+  },
+  {
+   "src": "/images/radovi/dizajn/08.jpg",
+   "w": 1920,
+   "h": 2400
+  },
+  {
+   "src": "/images/radovi/dizajn/09.jpg",
+   "w": 1920,
+   "h": 2400
+  }
+ ]
+}
